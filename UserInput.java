@@ -17,10 +17,7 @@ public class UserInput implements ActionListener {
     JPanel panel;
 
     Font myFont = new Font("Ink Free", Font.BOLD, 30);
-
-    double num1 = 0, num2 = 0, result = 0;
-    char operator;
-
+    
     //----------------------- changed-------------------------
     String expression = "";
     //----------------------- end changed-------------------------
@@ -122,46 +119,24 @@ public class UserInput implements ActionListener {
             textfield.setText(expression);
         }
         if (e.getSource() == addButton) {
-            num1 = Double.parseDouble(expression);
-            operator = '+';
             expression += "+";
             textfield.setText(expression);
         }
         if (e.getSource() == subButton) {
-            num1 = Double.parseDouble(expression);
-            operator = '-';
             expression += "-";
             textfield.setText(expression);
         }
         if (e.getSource() == mulButton) {
-            num1 = Double.parseDouble(expression);
-            operator = '*';
             expression += "*";
             textfield.setText(expression);
         }
         if (e.getSource() == divButton) {
-            num1 = Double.parseDouble(expression);
-            operator = '/';
             expression += "/";
             textfield.setText(expression);
         }
         if (e.getSource() == equButton) {
-            num2 = Double.parseDouble(expression.substring(expression.lastIndexOf(operator) + 1));
-            switch (operator) {
-                case '+':
-                    result = num1 + num2;
-                    break;
-                case '-':
-                    result = num1 - num2;
-                    break;
-                case '*':
-                    result = num1 * num2;
-                    break;
-                case '/':
-                    result = num1 / num2;
-                    break;
-            }
-            textfield.setText(String.valueOf(result));
+        	
+            textfield.setText(String.valueOf(calculateExpression(expression)));
             expression = "";
         }
         if (e.getSource() == clrButton) {
@@ -175,11 +150,15 @@ public class UserInput implements ActionListener {
             }
         }
         if (e.getSource() == negButton) {
-            double temp = Double.parseDouble(expression);
-            temp *= -1;
-            expression = String.valueOf(temp);
+            expression += "-";
             textfield.setText(expression);
         }
-    }    //-----------------------end changed-------------------------
-
+    }
+    
+    public double calculateExpression(String expression) {
+    	
+    	
+    	
+    	return 10.0;
+    }
 }
